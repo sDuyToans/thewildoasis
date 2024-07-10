@@ -1,0 +1,31 @@
+import React from "react";
+import styled from "styled-components";
+import Logout from "../features/authentication/Logout.jsx";
+import ButtonIcon from "./ButtonIcon.jsx";
+import { HiOutlineUsers } from "react-icons/hi2";
+import { useNavigate } from "react-router-dom";
+import DarkModeToggle from "./DarkModeToggle.jsx";
+const StyledHeaderMenu = styled.ul`
+  display: flex;
+  gap: 0.3 rem;
+`;
+function HeaderMenu(props) {
+  const navigate = useNavigate();
+  return (
+    <StyledHeaderMenu>
+      <li>
+        <ButtonIcon onClick={() => navigate("/account")}>
+          <HiOutlineUsers />
+        </ButtonIcon>
+      </li>
+      <li>
+        <DarkModeToggle />
+      </li>
+      <li>
+        <Logout />
+      </li>
+    </StyledHeaderMenu>
+  );
+}
+
+export default HeaderMenu;
